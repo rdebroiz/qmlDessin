@@ -4,6 +4,6 @@
 int main(int argc, char *argv[])
 {
     QtQuickControlsApplication app(argc, argv);
-    QQmlApplicationEngine engine(QUrl("qrc:/qmlDessin.qml"));
+    QQmlApplicationEngine engine(QUrl("qrc:/mainwindow.qml"));
     return app.exec();
 }
