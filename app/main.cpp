@@ -1,13 +1,9 @@
-#include <QGuiApplication>
-#include <QQuickView>
+#include "qtquickcontrolsapplication.h"
+#include <QtQml/QQmlApplicationEngine>
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
-
-    QQuickView view;
-    view.setSource(QUrl("qrc:/qmlDessin.qml"));
-    view.show();
-
+    QtQuickControlsApplication app(argc, argv);
+    QQmlApplicationEngine engine(QUrl("qrc:/qmlDessin.qml"));
     return app.exec();
 }

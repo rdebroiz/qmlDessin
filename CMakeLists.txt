@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(qmlDessin)
+project(QMLDESSIN)
 
 
 ## #############################################################################
@@ -38,11 +38,11 @@ include(list_header_directories_to_include)
 ## #############################################################################
 
 # Find the QtWidgets library
-#find_package(Qt5Core REQUIRED)
-#find_package(Qt5Widgets REQUIRED)
-#find_package(Qt5Qml REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Qml REQUIRED)
 find_package(Qt5Quick REQUIRED)
-#find_package(Qt5QuickWidgets REQUIRED)
+find_package(Qt5QuickWidgets REQUIRED)
 
 
 ## #############################################################################
@@ -56,50 +56,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 
 ## #############################################################################
-## List Sources
+## Configure the application
 ## #############################################################################
 
-list_source_files(${PROJECT_NAME}
-  ${CMAKE_CURRENT_SOURCE_DIR}
-  app
-  app/qml
-  )
-
-## #############################################################################
-## include directorie.
-## #############################################################################
-
-list_header_directories_to_include(${PROJECT_NAME}
-  ${${PROJECT_NAME}_HEADERS}
-  )
-
-include_directories(${${PROJECT_NAME}_INCLUDE_DIRS})
-
-## #############################################################################
-## Exe definition.
-## #############################################################################
-
-qt5_add_resources(${PROJECT_NAME}_QRC
-    ${${PROJECT_NAME}_QRC}
-    )
-
-add_executable(${PROJECT_NAME}
-  ${${PROJECT_NAME}_CFILES}
-  ${${PROJECT_NAME}_QRC}
-  ${${PROJECT_NAME}_QML}
-  )
-
-
-## #############################################################################
-## Exe definition.
-## #############################################################################
-
-target_link_libraries(${PROJECT_NAME}
-#  Qt5::Core
-#  Qt5::Widgets
-#  Qt5::Qml
-  Qt5::Quick
-#  Qt5::QuickWidgets
-  )
-
-
+add_subdirectory(app)
